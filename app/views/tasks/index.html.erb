@@ -1,4 +1,16 @@
-<p>Здравствуйте, <%= current_user.email %></p>
+<html>
+<head>
+  <title>list</title>
+  <style type="text/css">
+    #main {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<a class="brand" href="#">Project name</a>
+<div align="right" id="main">
+  <div>Здравствуйте, <%= current_user.email %></div>
 <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
 <h1>Ваш менеджер задач</h1>
 
@@ -9,20 +21,19 @@
       <%= f.text_field :title, class: "form-control", placeholder: "Название задачи" %>
     </div>
     <div class="form-group">
-      <%= f.text_area :text, class: "form-control", size: "30x4", placeholder: "Описание" %>
+      <%= f.text_area :text, class: "form-control", size: "40x4", placeholder: "Описание" %>
     </div>
 
     <%= f.submit "Добавить задачу",class: "pull-right", class: "btn btn-primary" %>
   <% end %>
 </div>
-<p><%= notice %></p>
-<p><%= alert %></p>
+  </div>
 <hr>
 <% @tasks.each do |t| %>
   <div class="row">
     <div class="panel panel-success">
       <div class="panel-body">
-        <div class="col-md-8">
+        <div class="col-md-7">
           <b><%= t.title %></b><br>
           <p><%= t.text %></p>
           <% if t.status %>
@@ -51,3 +62,4 @@
   </div>
 
 <% end %>
+</body></html>
