@@ -17,6 +17,10 @@ class TasksController < ApplicationController
 
   end
 
+  def get_text
+    id = params[:id].to_i
+    render json: {text: current_user.tasks.find(id).text}
+  end
   def edit
     @task = current_user.tasks.find(params[:id])
   end
