@@ -1,12 +1,14 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!, except: []
+  before_action :authenticate_user!
   def index
     @task = Task.new
-    @tasks = Task.all.order(created_at: :desc)
+    @task.user = current_user
+    @tasks = current_user.tasks.order(created_at: :desc)
   end
 
   def create
     @task = Task.new(tasks_params)
+    @task.user = current_user
     if @task.save
       redirect_to root_path
     else
@@ -16,11 +18,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
 
     if @task.update(tasks_params)
       redirect_to root_path
@@ -30,7 +32,7 @@ class TasksController < ApplicationController
   end
 
   def done
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
 
     if @task
       @task.status = "true"
