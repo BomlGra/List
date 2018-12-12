@@ -1,21 +1,33 @@
-<h1>Редактирование задачи</h1>
+<div><%= t :hello %>, <%= current_user.email %></div>
+<%= link_to t(:logout), destroy_user_session_path, method: :delete %>
+
+<%= content_tag :li do %>
+  <%= link_to 'Переключиться на английский', locale: :en %>
+<% end unless current_page? locale: :en %>
+
+<%= content_tag :li do %>
+  <%= link_to 'Switch to Russian', locale: :ru %>
+<% end unless current_page? locale: :ru %>
+
+
+<h1><% t :task_editing %></h1>
 
 <%= form_for @task do |f| %>
 
   <p>
-    <%= f.label :title, "Название" %><br>
+    <%= f.label :title, t(:name) %><br>
     <%= f.text_field :title %>
   </p>
 
   <p>
-    <%= f.label :text, "Описание" %><br>
+    <%= f.label :text, t(:description) %><br>
     <%= f.text_area :text %>
   </p>
 
   <p>
-    <%= f.submit "Сохранить" %>
+    <%= f.submit t(:save) %>
   </p>
 
 <% end %>
 
-<%= link_to 'Назад', root_path %>
+<%= link_to t(:back), root_path %>

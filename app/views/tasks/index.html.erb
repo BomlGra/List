@@ -25,23 +25,30 @@
   </script>
 </head>
 <body>
-<a class="brand" href="#">Project name</a>
 <div align="right" id="main">
-  <div>Здравствуйте, <%= current_user.email %></div>
-  <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-  <h1>Ваш менеджер задач</h1>
+  <div><%= t :hello %>, <%= current_user.email %></div>
+  <%= link_to t(:logout), destroy_user_session_path, method: :delete %>
 
+  <%= content_tag :li do %>
+    <%= link_to 'Switch to English', locale: :en %>
+  <% end unless current_page? locale: :en %>
+
+  <%= content_tag :li do %>
+    <%= link_to 'Переключиться на русский', locale: :ru %>
+  <% end unless current_page? locale: :ru %>
+
+  <h1><%= t :your_task_manager %></h1>
   <div class="row">
-    <h3>Добавить задачу</h3>
+    <h3><%= t :add_task %></h3>
     <%= form_for @task do |f| %>
       <div class="form-group">
-        <%= f.text_field :title, class: "form-control", placeholder: "Название задачи" %>
+        <%= f.text_field :title, class: "form-control", placeholder: t(:task_name) %>
       </div>
       <div class="form-group">
-        <%= f.text_area :text, class: "form-control", size: "40x4", placeholder: "Описание" %>
+        <%= f.text_area :text, class: "form-control", size: "40x4", placeholder: t(:description) %>
       </div>
 
-      <%= f.submit "Добавить задачу", class: "pull-right", class: "btn btn-primary" %>
+      <%= f.submit t(:add_task), class: "pull-right", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
@@ -54,7 +61,7 @@
           <b><%= t.title %></b><br>
           <% if t.status %>
             <p class="text-success">
-              <strong>Задание выполнено.</strong>
+              <strong><%= t(:task_complete) %>.</strong>
             </p>
           <% end %>
           <p id="text_<%= t.id %>"></p>
@@ -69,7 +76,7 @@
             <%= link_to edit_task_path(t) do %>
               <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
             <% end %>
-            <%= link_to task_path(t), method: :delete, data: {confirm: 'Вы уверены?'} do %>
+            <%= link_to task_path(t), method: :delete, data: {confirm: t(:are_you_sure)} do %>
               <span class="glyphicon glyphicon-trash" aria-hidden="false"></span>
             <% end %>
           </p>

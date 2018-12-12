@@ -29,16 +29,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-    hello: "Hello"
-    logout: "Log out"
-    your_task_manager: "Your task manager"
-    task_name: "Task name"
-    description: "Description"
-    add_task: "Add task"
-    task_complete: "Task completed"
-    are_you_sure: "Are you sure?"
-    task_editing: "Task editing"
-    name: "Title"
-    save: "Save"
-    back: "Back"
+ru:
+  hello: "Здравствуйте"
+  logout: "Выйти"
+  your_task_manager: "Ваш менеджер задач"
+  task_name: "Название задачи"
+  description: "Описание"
+  add_task: "Добавить задачу"
+  task_complete: "Задание выполнено"
+  are_you_sure: "Вы уверены?"
+  task_editing: "Редактирование задачи"
+  name: "Название"
+  save: "Сохранить"
+  back: "Назад"
