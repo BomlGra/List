@@ -32,7 +32,6 @@
 en:
     hello: "Hello"
     logout: "Log out"
-    your_task_manager: "Your task manager"
     task_name: "Task name"
     description: "Description"
     add_task: "Add task"

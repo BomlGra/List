@@ -37,7 +37,7 @@
     <%= link_to 'Переключиться на русский', locale: :ru %>
   <% end unless current_page? locale: :ru %>
 
-  <h1><%= t :your_task_manager %></h1>
+
   <div class="row">
     <h3><%= t :add_task %></h3>
     <%= form_for @task do |f| %>

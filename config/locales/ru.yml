@@ -32,7 +32,6 @@
 ru:
   hello: "Здравствуйте"
   logout: "Выйти"
-  your_task_manager: "Ваш менеджер задач"
   task_name: "Название задачи"
   description: "Описание"
   add_task: "Добавить задачу"

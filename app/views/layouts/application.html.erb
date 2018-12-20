@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Untitled4</title>
+    <title>Memory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="hero-unit">
+    <h1>Memory stock</h1>
+  </div>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="js/bootstrap.min.js"></script>
     <%= yield %>
   </body>
 </html>
